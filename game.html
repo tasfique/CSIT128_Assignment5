@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="stylesheet.css">
+	
+	<style type="text/css">
+
+		body 
+		{
+			background-image: linear-gradient(to right, pink , blue); /* css gradient */
+			background-repeat: repeat; 
+			background-position: center center;
+			background-size: cover;
+			background-color: #e2e2e2;
+		}
+
+		button
+		{
+			display: block;
+			margin: auto;
+			width: 100px;
+			height: 50px;
+			padding: 5px;
+			margin-top: 290px;
+
+		}
+		
+		hr.line{
+			width: 100%;
+			margin-left:0px;
+			background-color: red;
+		}
+
+		h2 {
+			font-size: 20px;
+			text-align: center;
+		}
+
+
+
+	</style>
+
+</head>
+<body>
+	<div id="content">
+		<center><h1 style="background-color: orange;"><span style="color: #black;" ><font size="6"><p>Dice</p></font></span></h1></center>
+		<hr class="line">
+
+		<div id="diceBody" align="center">
+			<img class="Dice" id="1stDice" width="220px" height="220px" align="top" style="margin-left:20px; margin-right: 20px;">
+			<img class="Dice" id="2ndDice" width="220px" height="220px" align="top" style="margin-left:20px; margin-right: 20px;">
+		
+		</div>
+		<br><br>
+
+		<button onclick="roll()" id="rollButton">ROLLLLL IT!</button>
+
+		<h2 id="total"></h2>
+
+	</div>
+
+	<script type="text/javascript">
+		var diceImage = ["images/1.jpg","images/2.jpg","images/3.jpg","images/4.jpg","images/5.jpg","images/6.jpg"];
+
+		var dice1 = document.getElementById("1stDice");
+		var dice2 = document.getElementById("2ndDice");
+
+		var button = document.getElementById("rollButton");
+
+		var firstValue;
+		var secondValue;
+
+		var sum;
+
+		var math1 = Math.floor(Math.random() * 6);
+		var math2 = Math.floor(Math.random() * 6);
+
+
+		dice1.style.display = "none";
+		dice2.style.display = "none";
+
+		function roll() {
+			dice1.style.display ="";
+			dice2.style.display ="";
+			button.style.display ="none";
+			firstValue = diceImage[math1];
+			secondValue = diceImage[math2];
+			dice1.src = firstValue;
+			dice2.src = secondValue;
+			sum = math1 +1 + math2 +1;
+			document.getElementById("total").innerHTML ="Sum of the Dice: " + sum;
+		}
+
+	</script>
+	
+</body>
+</html>
